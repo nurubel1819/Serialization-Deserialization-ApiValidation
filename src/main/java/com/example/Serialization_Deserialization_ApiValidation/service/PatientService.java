@@ -1,9 +1,11 @@
-package com.example.Serialization_Deserialization_ApiValidation;
+package com.example.Serialization_Deserialization_ApiValidation.service;
 
+import com.example.Serialization_Deserialization_ApiValidation.dto.PatientDto;
+import com.example.Serialization_Deserialization_ApiValidation.entity.Patient;
+import com.example.Serialization_Deserialization_ApiValidation.repo.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 

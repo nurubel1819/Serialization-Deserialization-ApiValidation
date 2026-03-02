@@ -1,4 +1,4 @@
-package com.example.Serialization_Deserialization_ApiValidation;
+package com.example.Serialization_Deserialization_ApiValidation.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
