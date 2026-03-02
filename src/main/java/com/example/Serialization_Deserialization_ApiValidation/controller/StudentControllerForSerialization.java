@@ -6,7 +6,6 @@ import com.example.Serialization_Deserialization_ApiValidation.dto.StudentDto;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/students")
 @RequiredArgsConstructor
-public class StudentController {
+public class StudentControllerForSerialization {
 
     private final StudentService service;
     private final StudentFileService studentFileService;

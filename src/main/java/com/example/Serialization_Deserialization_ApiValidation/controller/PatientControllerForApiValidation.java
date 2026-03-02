@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/patients")
 @RequiredArgsConstructor
-public class PatientController {
+public class PatientControllerForApiValidation {
 
     private final PatientService service;
 
