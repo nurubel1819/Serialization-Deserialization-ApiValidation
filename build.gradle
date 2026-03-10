@@ -22,6 +22,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -47,6 +48,16 @@ dependencies {
 
 	// Optional: For better OpenAPI annotations support
 	implementation 'io.swagger.core.v3:swagger-annotations:2.2.20'
+
+	//problem fighter
+	//pfspring-common = date conversion, string utilities, logging, standardized exceptions
+	//implementation 'com.problemfighter.pfspring.restapi:pfspring-rest-api:1.0.2'
+	//pfspring-multi-tenant == it use for SaaS project
+	//implementation 'com.problemfighter.pfspring.multitenant:pfspring-multi-tenant:1.0.0'
+	//pfspring-rest-api = it use for serialize/deserialize
+	implementation 'com.problemfighter.pfspring.restapi:pfspring-rest-api:1.0.2'
+	//pf-java-object-copier == it use for dto and entity mapping
+	implementation 'com.problemfighter.java.oc:pf-java-object-copier:1.0.1'
 
 
 }
