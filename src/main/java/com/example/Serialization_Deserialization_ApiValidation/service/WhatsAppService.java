@@ -13,7 +13,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -64,5 +66,54 @@ public class WhatsAppService {
 
         // log response
         System.out.println("WhatsApp Response: " + response.getBody());
+    }
+
+    public void sendDocumentMessage(String mobile,
+                                    String templateId,
+                                    List<String> params,
+                                    String fileUrl,
+                                    String fileName) {
+
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("apikey", apiKey);
+            headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+            MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+
+            body.add("channel", "whatsapp");
+            body.add("source", source);
+            body.add("destination", mobile);
+            body.add("src.name", srcName);
+
+            // Template JSON
+            Map<String, Object> template = new HashMap<>();
+            template.put("id", templateId);
+            template.put("params", params);
+
+            body.add("template", new ObjectMapper().writeValueAsString(template));
+
+            // Document JSON
+            Map<String, Object> document = new HashMap<>();
+            document.put("link", fileUrl);
+            document.put("filename", fileName);
+
+            Map<String, Object> message = new HashMap<>();
+            message.put("type", "document");
+            message.put("document", document);
+
+            body.add("message", new ObjectMapper().writeValueAsString(message));
+
+            HttpEntity<MultiValueMap<String, String>> entity =
+                    new HttpEntity<>(body, headers);
+
+            ResponseEntity<String> response =
+                    restTemplate.postForEntity(apiUrl, entity, String.class);
+
+            System.out.println("Response: " + response.getBody());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

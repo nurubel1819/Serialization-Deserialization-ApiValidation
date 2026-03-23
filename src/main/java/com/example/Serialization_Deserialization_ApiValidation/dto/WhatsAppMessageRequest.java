@@ -18,4 +18,16 @@ public class WhatsAppMessageRequest {
         private String id;
         private List<String> params;
     }
+
+    @Data
+    public static class Message {
+        private String type;
+        private Document document;
+    }
+
+    @Data
+    public static class Document {
+        private String link;
+        private String filename;
+    }
 }

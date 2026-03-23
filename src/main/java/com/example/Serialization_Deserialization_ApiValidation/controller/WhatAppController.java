@@ -30,4 +30,17 @@ public class WhatAppController {
 
         whatsAppService.sendTemplateMessage(phone,templateId,params);
     }
+
+    @PostMapping("/with-document")
+    public void WhatAppsTestWithDocument(@RequestParam String phone) throws JsonProcessingException {
+        String templateId = "eba507c6-778e-4171-889c-ad295a25df36";
+        List<String> params = new ArrayList<>();
+        params.add("Rubel");
+        params.add("Khan");
+
+        String fileUrl="https://fss.gupshup.io/0/public/0/0/gupshup/919148497777/97de9ae7-692b-483d-830b-603a5a51026c/1765347368708_lokesh_derangula_screening_report.pdf";
+        String fileName = "Sample document";
+
+        whatsAppService.sendDocumentMessage(phone,templateId,params,fileUrl,fileName);
+    }
 }
