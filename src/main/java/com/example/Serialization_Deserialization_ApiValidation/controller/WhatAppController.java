@@ -38,7 +38,8 @@ public class WhatAppController {
         params.add("Rubel");
         params.add("Khan");
 
-        String fileUrl="https://fss.gupshup.io/0/public/0/0/gupshup/919148497777/97de9ae7-692b-483d-830b-603a5a51026c/1765347368708_lokesh_derangula_screening_report.pdf";
+        //String fileUrl="https://fss.gupshup.io/0/public/0/0/gupshup/919148497777/97de9ae7-692b-483d-830b-603a5a51026c/1765347368708_lokesh_derangula_screening_report.pdf";
+        String fileUrl="https://core-dev.cmedhealth.com/prescription/4301137_25028_1775128131809.pdf?now=1775128133294"; // this is my dev url
         String fileName = "Sample document";
 
         whatsAppService.sendDocumentMessage(phone,templateId,params,fileUrl,fileName);
